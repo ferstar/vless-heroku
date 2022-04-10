@@ -10,8 +10,12 @@ DGST_FILE="v2ray-linux-${ARCH}.zip.dgst"
 echo "Downloading binary file: ${V2RAY_FILE}"
 echo "Downloading binary file: ${DGST_FILE}"
 
-wget -O ${PWD}/v2ray.zip https://github.com/v2fly/v2ray-core/releases/download/${TAG}/${V2RAY_FILE} -q > /dev/null 2>&1
-wget -O ${PWD}/v2ray.zip.dgst https://github.com/v2fly/v2ray-core/releases/download/${TAG}/${DGST_FILE} -q > /dev/null 2>&1
+# create temp dir
+mkdir -p /tmp/v2ray
+cd /tmp/v2ray
+
+wget -O v2ray.zip https://github.com/v2fly/v2ray-core/releases/download/${TAG}/${V2RAY_FILE} -q > /dev/null 2>&1
+wget -O v2ray.zip.dgst https://github.com/v2fly/v2ray-core/releases/download/${TAG}/${DGST_FILE} -q > /dev/null 2>&1
 
 if [ $? -ne 0 ]; then
     echo "Error: Failed to download binary file: ${V2RAY_FILE} ${DGST_FILE}" && exit 1
@@ -36,5 +40,6 @@ mv geosite.dat geoip.dat /usr/local/share/v2ray/
 mv config.json /etc/v2ray/config.json
 
 # Clean
-rm -rf ${PWD}/*
+cd /root
+rm -rf /tmp/v2ray
 echo "Done"
