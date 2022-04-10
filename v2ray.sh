@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set ARG
-TAG=$(curl -s -X HEAD -I https://github.com/v2fly/v2ray-core/releases/latest | grep location: | awk -F '/' '{print $NF}')
+TAG=$(curl -s -X HEAD -I https://github.com/v2fly/v2ray-core/releases/latest | grep location: | awk -F '/' '{print $NF}' | sed -e 's/\r//g')
 ARCH="64"
 
 # Download files
