@@ -18,6 +18,7 @@ RUN apt update && \
     ca-certificates \
     wget \
     curl \
+    unzip \
     tzdata \
     locales \
     python3-pip \
