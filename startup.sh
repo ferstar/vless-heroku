@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cat << EOF > /etc/v2ray/config.json
+cat << EOF > /tmp/config.json
 {
     "policy": {
         "levels": {
@@ -51,7 +51,8 @@ EOF
 # Run V2Ray
 if [[ $TUNNEL_TOKEN ]]; then
 echo 'has tunnel token, run cloudflared tunnel'
-/usr/bin/v2ray -config /etc/v2ray/config.json & /root/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN
+/usr/bin/nohup /usr/bin/v2ray -config /tmp/config.json > /dev/null 2>&1 & \
+    /root/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN
 else
-/usr/bin/v2ray -config /etc/v2ray/config.json
+/usr/bin/v2ray -config /tmp/config.json
 fi
