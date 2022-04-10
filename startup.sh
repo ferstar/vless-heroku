@@ -86,7 +86,7 @@ if [[ $TUNNEL_TOKEN ]]; then
     echo 'has tunnel token, run cloudflared tunnel'
     cat << EOF >> /etc/supervisor/conf.d/v2ray.conf
 [program:cloudflared]
-command=/root/cloudflared tunnel --no-autoupdate run --token $ENV_TUNNEL_TOKEN
+command=/root/cloudflared tunnel --no-autoupdate run --token %(ENV_TUNNEL_TOKEN)s
 autorestart=true
 autostart=true
 startsecs=10

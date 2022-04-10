@@ -34,7 +34,7 @@ RUN apt update && \
     chmod +x /root/v2ray.sh && \
     chmod +x /startup.sh && \
     /root/v2ray.sh && \
-    wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /root/cloudflared && \
+    wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -qO /root/cloudflared && \
     chmod +x /root/cloudflared
 
 ENTRYPOINT ["/startup.sh"]
