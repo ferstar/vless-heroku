@@ -81,6 +81,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{ env.APP_NAME }} #Must be unique in Heroku
           heroku_email: ${{secrets.EMAIL}}
+          dontuseforce: 1
           usedocker: true
           region: ${{github.event.inputs.heroku-region || 'us'}}
           # docker_build_args: |
