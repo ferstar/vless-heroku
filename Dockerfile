@@ -38,6 +38,7 @@ RUN apt update && \
     wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -qO /root/cloudflared && \
     chmod +x /root/cloudflared
 
-ENTRYPOINT ["/startup.sh"]
+# ENTRYPOINT ["/startup.sh"]
 
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD /usr/bin/nc -z localhost 8080 || exit 1
+# HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD /usr/bin/nc -z localhost 8080 || exit 1
+CMD /startup.sh
