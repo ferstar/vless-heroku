@@ -25,8 +25,6 @@ RUN apt update && \
     ln -sf /usr/bin/vim-tiny /usr/bin/vim && \
     ln -sf /usr/bin/python3.8-config /usr/bin/python-config && \
     locale-gen en_US.UTF-8 && \
-    pip3 install --upgrade --no-cache-dir pip && \
-    pip3 install --upgrade --no-cache-dir setuptools wheel && \
     pip3 install --upgrade --no-cache-dir supervisor && \
     mkdir -pv /etc/supervisor/conf.d && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/.cache && \
