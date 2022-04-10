@@ -26,6 +26,7 @@ EOF
 
 cat << EOF > /etc/supervisor/conf.d/v2ray.conf
 [program:v2ray]
+directory=/root
 command=/usr/bin/v2ray -config /etc/v2ray/config.json
 autorestart=true
 autostart=true
@@ -86,6 +87,7 @@ if [[ $TUNNEL_TOKEN ]]; then
     echo 'has tunnel token, run cloudflared tunnel'
     cat << EOF >> /etc/supervisor/conf.d/v2ray.conf
 [program:cloudflared]
+directory=/root
 command=/root/cloudflared tunnel --no-autoupdate run --url http://localhost:$PORT --token %(ENV_TUNNEL_TOKEN)s
 autorestart=true
 autostart=true
