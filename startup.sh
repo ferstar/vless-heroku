@@ -23,7 +23,7 @@ cat << EOF > /etc/v2ray/config.json
     },
     "inbounds": [
         {
-            "port": $PORT,
+            "port": 8080,
             "protocol": "vless",
             "settings": {
                 "clients": [
@@ -55,4 +55,3 @@ echo 'has tunnel token, run cloudflared tunnel'
 else
 /usr/bin/v2ray -config /etc/v2ray/config.json
 fi
-
