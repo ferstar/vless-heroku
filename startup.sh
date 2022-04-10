@@ -30,8 +30,8 @@ command=/usr/bin/v2ray -config /etc/v2ray/config.json
 autorestart=true
 autostart=true
 startsecs=10
-stdout_logfile=/dev/stdout
-stderr_logfile=/dev/stderr
+stdout_logfile=/root/v2ray.stdout.log
+stderr_logfile=/root/v2ray.stderr.log
 EOF
 
 cat << EOF > /tmp/config.json
@@ -90,8 +90,8 @@ command=/root/cloudflared tunnel --no-autoupdate run --token %(ENV_TUNNEL_TOKEN)
 autorestart=true
 autostart=true
 startsecs=10
-stdout_logfile=/dev/stdout
-stderr_logfile=/dev/stderr
+stdout_logfile=/root/cf.stdout.log
+stderr_logfile=/root/cf.stderr.log
 EOF
 fi
 
