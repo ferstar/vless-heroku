@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+WORKDIR /root
+
 ENV LANG=en_US.UTF-8 \
     TZ=Asia/Shanghai \
     SUPERVISOR_LOGFILE_BACKUPS=3 \
